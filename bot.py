@@ -9,7 +9,7 @@ bot = telebot.TeleBot('1290380316:AAFDcVwSopL5XvxkWFSbOEsTW7iBfuYfkyI')
 
 @bot.message_handler(commands=['start'])
 def start_message(message):	
-    bot.send_message(message.chat.id, 'רובוט ראשונים במוזיקה\nמוריד ועורך מיוטיוב')
+    bot.send_message(message.chat.id, 'רובוט ראשונים במוזיקה\nמוריד ועורך שירים מיוטיוב')
 
 #@bot.message_handler(content_types=['text'])
 #def echo_message(message):
