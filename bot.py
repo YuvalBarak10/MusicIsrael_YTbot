@@ -17,12 +17,13 @@ def start_message(message):
 
 @bot.message_handler(func=lambda message: True)
 def get_url(message):
-	bot.send_message(message.chat.id, 'טוען...')
+	bot.reply_to(message,'טוען...')
+	
 	try:
 		url = message.text
 		mp3_file = converter.convert(url)
 		#bot.send_message(message.chat.id, 'השיר\n{} \nיורד ונערך...'.format(mp3_file[6 : -4]))
-		bot.reply_to(message, 'השיר\n{} \nיורד ונערך...'.format(mp3_file[6 : -4]))
+		#bot.reply_to(message, 'השיר\n{} \nיורד ונערך...'.format(mp3_file[6 : -4]))
 		audio = open(mp3_file, 'rb')
 		#bot.send_audio(message.chat.id,audio,'🎵@MusicIsrael🎧','','ראשונים במוזיקה','{}'.format(mp3_file[4:-4]))
 		bot.send_audio(message.chat.id,audio,'🎵@MusicIsrael🎧','','ראשונים במוזיקה',mp3_file[6:-4])		
