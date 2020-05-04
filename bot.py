@@ -23,14 +23,17 @@ def get_url(message):
 		url = message.text
 		mp3_file = converter.convert(url)
 		#bot.edit_message_text('ממיר ל - mp3...',message.chat.id,dele.message_id)
-		audio = open(mp3_file, 'rb')
+		delee = bot.reply_to(message,'h...')
+                audio = open(mp3_file, 'rb')
 		bot.edit_message_text('מעלה את הקובץ לטלגרם....',message.chat.id,dele.message_id)
 		bot.send_audio(message.chat.id,audio,'🎵@MusicIsrael🎧','','ראשונים במוזיקה',mp3_file[6:-4])		
 		bot.delete_message(message.chat.id,dele.message_id)		
 		converter.delete(mp3_file)
 	except:
 		#converter.delete(mp3_file)
+                bot.delete_message(message.chat.id,dele.message_id)
+                bot.delete_message(message.chat.id,delee.message_id)
 		#bot.send_message(message.chat.id, 'טעות בקישור,נסה שוב')
-		bot.delete_message(message.chat.id,dele.message_id)
+		#bot.delete_message(message.chat.id,dele.message_id)
 
 bot.polling()
