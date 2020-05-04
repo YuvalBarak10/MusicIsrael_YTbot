@@ -17,8 +17,9 @@ def start_message(message):
 
 @bot.message_handler(func=lambda message: True)
 def get_url(message):
-	dele = bot.reply_to(message,'טוען...')
+	
 	try:
+		dele = bot.reply_to(message,'טוען...')
 		url = message.text
 		mp3_file = converter.convert(url)
 		#bot.edit_message_text('ממיר ל - mp3...',message.chat.id,dele.message_id)
@@ -29,7 +30,7 @@ def get_url(message):
 		converter.delete(mp3_file)
 	except:
 		#converter.delete(mp3_file)
-		bot.delete_message(message.chat.id,dele.messa
+		bot.delete_message(message.chat.id,dele.message)
 		bot.send_message(message.chat.id, 'טעות בקישור,נסה שוב')
 
 bot.polling()
