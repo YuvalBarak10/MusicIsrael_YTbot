@@ -12,7 +12,7 @@ def start_message(message):
     bot.send_message(message.chat.id, 'רובוט ראשונים במוזיקה\n מוריד ועורך מיוטיוב\nלעזרה - /help')
 
 @bot.message_handler(commands=['help'])
-def start_message(message):	
+def help_message(message):	
     bot.send_message(message.chat.id, 'הדבר היחיד שאתה צריך זה לשלוח את ה-URL של הסרטון ביוטיוב שאתה רוצה להוריד כמו זה למשל:\nhttps://youtu.be/mQiTfvht20I')
 
 #@bot.message_handler(content_types=['text'])
