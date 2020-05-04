@@ -29,7 +29,7 @@ def get_url(message):
 		converter.delete(mp3_file)
 	except:
 		#converter.delete(mp3_file)
-		bot.delete_message(message.chat.id,dele.message)
 		bot.send_message(message.chat.id, 'טעות בקישור,נסה שוב')
+		bot.delete_message(message.chat.id,dele.message)
 
 bot.polling()
