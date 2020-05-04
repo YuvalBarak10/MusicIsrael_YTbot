@@ -9,7 +9,7 @@ bot = telebot.TeleBot('1290380316:AAFDcVwSopL5XvxkWFSbOEsTW7iBfuYfkyI')
 
 @bot.message_handler(commands=['start'])
 def start_message(message):	
-    bot.send_message(message.chat.id, 'רובוט ראשונים במוזיקה \n מוריד ועורך מיוטיוב')
+    bot.send_message(message.chat.id, 'רובוט ראשונים במוזיקה\nמוריד ועורך מיוטיוב')
 
 #@bot.message_handler(content_types=['text'])
 #def echo_message(message):
@@ -17,16 +17,16 @@ def start_message(message):
 
 @bot.message_handler(func=lambda message: True)
 def get_url(message):
-	bot.reply_to(message,'טוען...')
-	
+	dele = bot.reply_to(message,'טוען...')
 	try:
+		bot.edit_message_text('מוריד...',message.chat.id,dele.message_id)
 		url = message.text
 		mp3_file = converter.convert(url)
-		#bot.send_message(message.chat.id, 'השיר\n{} \nיורד ונערך...'.format(mp3_file[6 : -4]))
-		#bot.reply_to(message, 'השיר\n{} \nיורד ונערך...'.format(mp3_file[6 : -4]))
+		bot.edit_message_text('ממיר ל - mp3...',message.chat.id,dele.message_id)
 		audio = open(mp3_file, 'rb')
-		#bot.send_audio(message.chat.id,audio,'🎵@MusicIsrael🎧','','ראשונים במוזיקה','{}'.format(mp3_file[4:-4]))
+		bot.edit_message_text('מעלה את הקובץ לטלגרם....',message.chat.id,dele.message_id)
 		bot.send_audio(message.chat.id,audio,'🎵@MusicIsrael🎧','','ראשונים במוזיקה',mp3_file[6:-4])		
+		bot.delete_message(message.chat.id,dele.message_id)		
 		converter.delete(mp3_file)
 	except:
 		#converter.delete(mp3_file)
