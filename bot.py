@@ -5,7 +5,7 @@ import time
 
 url = ''
 mp3_file = ''
-bot = telebot.TeleBot('854466744:AAHXYY0hQmQiBNOto3dNK8734uiZUhwETro')
+bot = telebot.TeleBot('1290380316:AAFDcVwSopL5XvxkWFSbOEsTW7iBfuYfkyI')
 
 @bot.message_handler(commands=['start'])
 def start_message(message):	
