@@ -9,7 +9,11 @@ bot = telebot.TeleBot('1290380316:AAFDcVwSopL5XvxkWFSbOEsTW7iBfuYfkyI')
 
 @bot.message_handler(commands=['start'])
 def start_message(message):	
-    bot.send_message(message.chat.id, 'רובוט ראשונים במוזיקה\nמוריד ועורך שירים מיוטיוב')
+    bot.send_message(message.chat.id, 'רובוט ראשונים במוזיקה \n מוריד ועורך מיוטיוב\nלעזרה - /help')
+
+@bot.message_handler(commands=['help'])
+def start_message(message):	
+    bot.send_message(message.chat.id, 'הדבר היחיד שאתה צריך זה לשלוח את ה-URL של הסרטון ביוטיוב שאתה רוצה להוריד כמו זה למשל:\nhttps://youtu.be/mQiTfvht20I')
 
 #@bot.message_handler(content_types=['text'])
 #def echo_message(message):
