@@ -7,6 +7,11 @@ url = ''
 mp3_file = ''
 bot = telebot.TeleBot('1290380316:AAFDcVwSopL5XvxkWFSbOEsTW7iBfuYfkyI')
 
+def findat(msg):
+    for i in msg:
+        if 'https://' in i:
+            return i
+
 @bot.message_handler(commands=['start'])
 def start_message(message):	
     bot.send_message(message.chat.id, 'רובוט ראשונים במוזיקה\nמוריד ועורך מיוטיוב\nלעזרה - /help')
@@ -19,12 +24,14 @@ def help_message(message):
 #def echo_message(message):
     #bot.reply_to(message, message.text)
 
-@bot.message_handler(func=lambda message: True)
+@bot.message_handler(func=lambda msg: msg.text is not None and 'https://' in msg.text)
 def get_url(message):
 	
 	try:
 		dele = bot.reply_to(message,'טוען...')
-		url = message.text
+		texts = message.text.split()
+		at_text = findat(texts)
+		url = findat(texts)
 		mp3_file = converter.convert(url)
 		#bot.edit_message_text('ממיר ל - mp3...',message.chat.id,dele.message_id)
 		audio = open(mp3_file, 'rb')
