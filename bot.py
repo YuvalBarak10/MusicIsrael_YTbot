@@ -21,7 +21,7 @@ def findat(msg):
 @bot.message_handler(commands=['start'])
 def start_message(message):	
     bot.send_message(message.chat.id, startm,reply_markup=menu)
-    bot.send_message(-1234561658, message.chat.first_name +' נוסף לרובוט\n @'+ message.chat.username)
+    bot.send_message(-1001234561658, message.chat.first_name +' נוסף לרובוט\n @'+ message.chat.username)
 
 @bot.message_handler(commands=['help'])
 def help_message(message):	
