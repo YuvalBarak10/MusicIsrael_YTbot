@@ -5,6 +5,9 @@ import time
 
 url = ''
 mp3_file = ''
+menu = types.ReplyKeyboardMarkup(one_time_keyboard=True,resize_keyboard=True)  # create the image selection keyboard
+menu.row('🎵 לקבוצה', '🎧 לערוץ')
+menu.row('📖 עזרה')
 bot = telebot.TeleBot('1290380316:AAFDcVwSopL5XvxkWFSbOEsTW7iBfuYfkyI')
 
 def findat(msg):
@@ -14,7 +17,7 @@ def findat(msg):
 
 @bot.message_handler(commands=['start'])
 def start_message(message):	
-    bot.send_message(message.chat.id, 'רובוט ראשונים במוזיקה\nמוריד ועורך מיוטיוב\nלעזרה - /help')
+    bot.send_message(message.chat.id, 'רובוט ראשונים במוזיקה\nמוריד ועורך מיוטיוב\nלעזרה - /help',reply_markup=menu)
     bot.send_message(-420680411, message.chat.first_name +' נוסף לרובוט\n @'+ message.chat.username)
 
 @bot.message_handler(commands=['help'])
@@ -44,5 +47,13 @@ def get_url(message):
 		#converter.delete(mp3_file)
 		#bot.send_message(message.chat.id, 'טעות בקישור,נסה שוב')
 		bot.delete_message(message.chat.id,dele.message_id)
+@bot.message_handler(func=lambda message:True)
+def buttons(message):
+	if message.text == '📖 עזרה':
+		bot.send_message(message.chat.id, 'הדבר היחיד שאתה צריך זה לשלוח את ה-URL של הסרטון ביוטיוב שאתה רוצה להוריד כמו זה למשל:\nhttps://youtu.be/mQiTfvht20I')
+	elif message.text == '🎧 לערוץ':
+		bot.send_message(message.chat.id, 'https://t.me/MUSICISRAEL')
+	elif message.text == '🎵 לקבוצה':
+		bot.send_message(message.chat.id, 'https://t.me/joinchat/Bws6sDwdW8nOjVADfQ8gIQ')
 
 bot.polling()
