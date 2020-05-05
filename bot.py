@@ -32,7 +32,7 @@ def get_url(message):
 		dele = bot.reply_to(message,'טוען...')
 		texts = message.text.split()
 		at_text = findat(texts)
-		url = findat(texts)
+		url = at_text
 		mp3_file = converter.convert(url)
 		#bot.edit_message_text('ממיר ל - mp3...',message.chat.id,dele.message_id)
 		audio = open(mp3_file, 'rb')
