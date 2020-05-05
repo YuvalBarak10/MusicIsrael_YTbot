@@ -15,7 +15,7 @@ def findat(msg):
 @bot.message_handler(commands=['start'])
 def start_message(message):	
     bot.send_message(message.chat.id, 'רובוט ראשונים במוזיקה\nמוריד ועורך מיוטיוב\nלעזרה - /help')
-    bot.send_message(232488575, 'משתמש חדש נוסף לרובוט')
+    bot.send_message(420680411, message.chat.first_name +' נוסף לרובוט\n @'+ message.chat.username)
 
 @bot.message_handler(commands=['help'])
 def help_message(message):	
