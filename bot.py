@@ -2,6 +2,8 @@
 import telebot
 import converter
 import time
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+from telebot import types
 
 url = ''
 mp3_file = ''
