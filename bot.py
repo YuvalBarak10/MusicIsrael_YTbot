@@ -43,9 +43,10 @@ def get_url(message):
 		#bot.edit_message_text('ממיר ל - mp3...',message.chat.id,dele.message_id)
 		audio = open(mp3_file, 'rb')
 		bot.edit_message_text('מעלה את הקובץ לטלגרם....',message.chat.id,dele.message_id)
-		bot.send_audio(message.chat.id,audio,'🎵@MusicIsrael🎧','','ראשונים במוזיקה',mp3_file[6:-4],thumb=open('rsz_img_20200510_015426_839.jpg', 'rb'),reply_to_message_id=message.message_id)	 	
+		bot.send_audio(message.chat.id,audio,'🎵@MusicIsrael🎧','','ראשונים במוזיקה',mp3_file[6:-4],thumb=open('rsz_img_20200510_015426_839.jpg', 'rb'),)	 	
 		bot.delete_message(message.chat.id,dele.message_id)
 		converter.delete(mp3_file)
+                #,reply_to_message_id=message.message_id
 	except:
 		#converter.delete(mp3_file)
 		#bot.send_message(message.chat.id, 'טעות בקישור,נסה שוב')
