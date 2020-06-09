@@ -8,9 +8,9 @@ from telebot import types
 url = ''
 mp3_file = ''
 startm = 'רובוט יוטיוב - ראשונים במוזיקה🎵\nמוריד ועורך שירים מיוטיוב\nלמדריך - /help\n\n💻מפתח הבוט: @rap_ap\nצוות ראשונים במוזיקה✨'
-menu = types.ReplyKeyboardMarkup(one_time_keyboard=True,resize_keyboard=True)  # create the image selection keyboard
-menu.row('🎵 לקבוצה', '🎧 לערוץ')
-menu.row('📖 מדריך')
+#menu = types.ReplyKeyboardMarkup(one_time_keyboard=True,resize_keyboard=True)  # create the image selection keyboard
+#menu.row('🎵 לקבוצה', '🎧 לערוץ')
+#menu.row('📖 מדריך')
 bot = telebot.TeleBot('1290380316:AAFDcVwSopL5XvxkWFSbOEsTW7iBfuYfkyI')
 
 def findat(msg):
@@ -20,7 +20,7 @@ def findat(msg):
 
 @bot.message_handler(commands=['start'])
 def start_message(message):	
-    bot.send_message(message.chat.id, startm,reply_markup=menu)
+    bot.send_message(message.chat.id, startm)
     bot.send_message(-1001234561658, message.chat.first_name +' נוסף לרובוט\n @'+ message.chat.username)
 
 @bot.message_handler(commands=['help'])
@@ -50,13 +50,13 @@ def get_url(message):
 		#converter.delete(mp3_file)
 		#bot.send_message(message.chat.id, 'טעות בקישור,נסה שוב')
 		bot.delete_message(message.chat.id,dele.message_id)
-@bot.message_handler(func=lambda message:True)
-def buttons(message):
-	if message.text == '📖 מדריך':
-		bot.send_message(message.chat.id, 'הדבר היחיד שאתה צריך זה לשלוח את ה-URL של הסרטון ביוטיוב שאתה רוצה להוריד כמו זה למשל:\nhttps://youtu.be/mQiTfvht20I',disable_web_page_preview=True)
-	elif message.text == '🎧 לערוץ':
-		bot.send_message(message.chat.id, 'https://t.me/MUSICISRAEL')
-	elif message.text == '🎵 לקבוצה':
-		bot.send_message(message.chat.id, 'https://t.me/joinchat/Bws6sDwdW8nOjVADfQ8gIQ')
+#@bot.message_handler(func=lambda message:True)
+#def buttons(message):
+	#if message.text == '📖 מדריך':
+		#bot.send_message(message.chat.id, 'הדבר היחיד שאתה צריך זה לשלוח את ה-URL של הסרטון ביוטיוב שאתה רוצה להוריד כמו זה למשל:\nhttps://youtu.be/mQiTfvht20I',disable_web_page_preview=True)
+	#elif message.text == '🎧 לערוץ':
+		#bot.send_message(message.chat.id, 'https://t.me/MUSICISRAEL')
+	#elif message.text == '🎵 לקבוצה':
+		#bot.send_message(message.chat.id, 'https://t.me/joinchat/Bws6sDwdW8nOjVADfQ8gIQ')
 
 bot.polling()
