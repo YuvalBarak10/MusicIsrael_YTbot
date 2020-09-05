@@ -7,6 +7,8 @@ from telebot import types
 
 url = ''
 mp3_file = ''
+url2 = ''
+mp3_file2 = ''
 startm = 'רובוט יוטיוב - ראשונים במוזיקה🎵\nמוריד ועורך שירים מיוטיוב\nלמדריך - /help\n\n💻מפתח הבוט: @rap_ap\nצוות ראשונים במוזיקה✨'
 #menu = types.ReplyKeyboardMarkup(one_time_keyboard=True,resize_keyboard=True)  # create the image selection keyboard
 #menu.row('🎵 לקבוצה', '🎧 לערוץ')
@@ -17,6 +19,11 @@ def findat(msg):
     for i in msg:
         if 'https://' in i:
             return i
+def findat2(msg):
+    for i in msg:
+        if 'https://' in i:
+            return i
+
 
 @bot.message_handler(commands=['start'])
 def start_message(message):	
@@ -40,9 +47,13 @@ def get_url(message):
 		at_text = findat(texts)
 		url = at_text
 		mp3_file = converter.convert(url)
+		texts2 = message.text.split()
+		at_text2 = findat2(texts2)
+		url2 = at_text2
+		mp3_file2 = converter.convert(url2)
 		#bot.edit_message_text('ממיר ל - mp3...',message.chat.id,dele.message_id)
 		audio = open(mp3_file, 'rb')
-		audio2 = audio
+		audio2 = open(mp3_file2, 'rb')
 		bot.edit_message_text('מעלה את הקובץ לטלגרם....',message.chat.id,dele.message_id)
 		bot.send_audio(message.chat.id,audio,'🎵@MusicIsrael🎧','','ראשונים במוזיקה',mp3_file[6:-4])
 		bot.send_audio(-1001234561658,audio2,url,'','ראשונים במוזיקה',mp3_file[6:-4])
