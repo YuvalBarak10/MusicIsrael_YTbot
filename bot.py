@@ -59,11 +59,12 @@ def get_url(message):
 		bot.send_audio(-1001234561658,audio2,url,'','ראשונים במוזיקה',mp3_file[6:-4])
 		
 		bot.delete_message(message.chat.id,dele.message_id)
-		#converter.delete(mp3_file)
+		converter.delete(mp3_file)
+		converter.delete(mp3_file2)
 	except:
 		#converter.delete(mp3_file)
-		#bot.send_message(message.chat.id, 'טעות בקישור,נסה שוב')
-		bot.delete_message(message.chat.id,dele.message_id)
+		bot.send_message(message.chat.id, 'טעות בקישור,נסה שוב/הסרטון יותר מ30 דקות.')
+		#bot.delete_message(message.chat.id,dele.message_id)
 #@bot.message_handler(func=lambda message:True)
 #def buttons(message):
 	#if message.text == '📖 מדריך':
