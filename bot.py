@@ -61,9 +61,10 @@ def get_url(message):
 		converter.delete(mp3_file)
 		converter.delete(mp3_file2)
 	except:
+
 		#converter.delete(mp3_file)
-		bot.send_message(message.chat.id, 'טעות בקישור,נסה שוב/הסרטון יותר מ30 דקות.')
-		#bot.reply_to(message,'טעות בקישור,נסה שוב/הסרטון יותר מ30 דקות.')
+		#bot.send_message(message.chat.id, 'טעות בקישור,נסה שוב/הסרטון יותר מ30 דקות.')
+		1=1
 		#bot.delete_message(message.chat.id,dele.message_id)
 #@bot.message_handler(func=lambda message:True)
 #def buttons(message):
