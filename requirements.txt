@@ -1,4 +1,4 @@
 
 pyTelegramBotAPI
 Ffmpeg
---upgrade youtube_dl
+youtube-dl -U
