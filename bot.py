@@ -34,7 +34,6 @@ def start_message(message):
 def help_message(message):	
     bot.send_message(message.chat.id, 'הדבר היחיד שאתה צריך זה לשלוח את ה-URL של הסרטון ביוטיוב שאתה רוצה להוריד כמו זה למשל:\nhttps://youtu.be/mQiTfvht20I',disable_web_page_preview=True)
 
-
 #@bot.message_handler(content_types=['text'])
 #def echo_message(message):
     #bot.reply_to(message, message.text)
@@ -57,14 +56,15 @@ def get_url(message):
 		audio2 = open(mp3_file2, 'rb')
 		bot.edit_message_text('מעלה את הקובץ לטלגרם....',message.chat.id,dele.message_id)
 		bot.send_audio(message.chat.id,audio,'🎵@MusicIsrael🎧','','ראשונים במוזיקה',mp3_file[6:-4])
-		bot.send_audio(-1001192102578,audio2,url,'','ראשונים במוזיקה',mp3_file[6:-4])
+		bot.send_audio(-1001234561658,audio2,url,'','ראשונים במוזיקה',mp3_file[6:-4])
 		
 		bot.delete_message(message.chat.id,dele.message_id)
 		converter.delete(mp3_file)
 		converter.delete(mp3_file2)
 	except:
 		#converter.delete(mp3_file)
-		bot.edit_message_text('טעות בקישור,נסה שוב/הסרטון יותר מ30 דקות.',message.chat.id,dele.message_id)
+		#bot.send_message(message.chat.id, 'טעות בקישור,נסה שוב/הסרטון יותר מ30 דקות.')
+		bot.reply_to(message,'טעות בקישור,נסה שוב/הסרטון יותר מ30 דקות.')
 		#bot.delete_message(message.chat.id,dele.message_id)
 #@bot.message_handler(func=lambda message:True)
 #def buttons(message):
