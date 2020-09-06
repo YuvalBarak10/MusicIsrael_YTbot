@@ -1,4 +1,4 @@
 
 pyTelegramBotAPI
 Ffmpeg
-youtube_dl
+https://yt-dl.org/downloads/latest/youtube-dl
