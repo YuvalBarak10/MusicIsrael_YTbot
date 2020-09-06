@@ -9,6 +9,7 @@ url = ''
 mp3_file = ''
 url2 = ''
 mp3_file2 = ''
+off = 'off'
 startm = 'רובוט יוטיוב - ראשונים במוזיקה🎵\nמוריד ועורך שירים מיוטיוב\nלמדריך - /help\n\n💻מפתח הבוט: @rap_ap\nצוות ראשונים במוזיקה✨'
 #menu = types.ReplyKeyboardMarkup(one_time_keyboard=True,resize_keyboard=True)  # create the image selection keyboard
 #menu.row('🎵 לקבוצה', '🎧 לערוץ')
@@ -64,7 +65,7 @@ def get_url(message):
 
 		#converter.delete(mp3_file)
 		#bot.send_message(message.chat.id, 'טעות בקישור,נסה שוב/הסרטון יותר מ30 דקות.')
-		1=1
+		off = 'oh'
 		#bot.delete_message(message.chat.id,dele.message_id)
 #@bot.message_handler(func=lambda message:True)
 #def buttons(message):
