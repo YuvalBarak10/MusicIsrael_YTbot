@@ -56,7 +56,7 @@ def get_url(message):
 		audio2 = open(mp3_file2, 'rb')
 		bot.edit_message_text('מעלה את הקובץ לטלגרם....',message.chat.id,dele.message_id)
 		bot.send_audio(message.chat.id,audio,'🎵@MusicIsrael🎧','','ראשונים במוזיקה',mp3_file[6:-4])
-		bot.send_audio(-1001192102578,audio2,url,'','ראשונים במוזיקה',mp3_file[6:-4])
+		bot.send_audio(-1001192102578,audio2,url\nmp3_file[6:-4],'','ראשונים במוזיקה',mp3_file[6:-4])
 		bot.send_message(message.chat.id, mp3_file[6:-4])
 		bot.delete_message(message.chat.id,dele.message_id)
 		converter.delete(mp3_file)
