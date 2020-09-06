@@ -9,11 +9,16 @@ def convert(url):
 	options = {
 		'outtmpl':('./mp3/%(title)s.%(ext)s'),
 	    'format': 'bestaudio/best',
+
+          'writethumbnail': True
 	    'postprocessors': [{
 	        'key': 'FFmpegExtractAudio',
 	        'preferredcodec': 'mp3',
 	        'preferredquality': '320',
-	    }],
+	       },        
+             {'key': 'EmbedThumbnail'},
+             {'key': 'FFmpegMetadata'},
+       ],
 	}      
 	try:
 		title = os.listdir("./mp3")
