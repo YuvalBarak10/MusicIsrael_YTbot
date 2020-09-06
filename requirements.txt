@@ -1,4 +1,4 @@
 
 pyTelegramBotAPI
 Ffmpeg
-https://yt-dl.org/downloads/latest/youtube-dl
+--upgrade youtube_dl
